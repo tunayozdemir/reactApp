@@ -4,6 +4,15 @@ import PropTypes from 'prop-types'
 
 class User extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state={
+      // deneme : "Deneme"
+      isVisable : false
+    }
+  }
+
   // Eğer istenen bilgiler props ta yoksa aşağıdaki değerler gelecektir.
   static defaultProps = {
       name : "Bilgi yok",
@@ -15,6 +24,7 @@ class User extends Component {
     
     // Destructing
     const {name, department, salary} = this.props
+    const {isVisable}=this.state
     return (
     // <form className="App">
     //   <input type="text"></input>
@@ -36,10 +46,15 @@ class User extends Component {
         <h4 className="d-inline">{name}</h4>
         <i className="far fa-trash-alt" style={{cursor:"pointer"}}></i>
         </div>
+
+        {
+          isVisable ? 
         <div className="card-body">
-          <p className="card-text">Maaş :{salary}</p>
-          <p className="card-text">Maaş :{department}</p>
-        </div>
+          <p className="card-text">Maaş : {salary}</p>
+          <p className="card-text">Maaş : {department}</p>
+          {/* <p>State : {this.state.deneme}</p> */}
+        </div> : null
+        } 
       </div>
     </div>
     )

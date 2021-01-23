@@ -13,12 +13,12 @@ const App = () => {
       <User 
         name ="Hayriye Özdemir"
         department = "Yazılım"
-       salary="5000"
+        salary="5000"
       />
       <User 
         name ="Tunay Özdemir"
         department = "Yazılım"
-       salary="3000"
+        salary="3000"
       />
       <hr/>
       <Navbar title="User App"/>
