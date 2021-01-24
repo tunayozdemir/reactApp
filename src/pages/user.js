@@ -26,6 +26,11 @@ class User extends Component {
 
   }
 
+  onDeleteUser = (e) => {
+    const {id, deleteUser} = this.props
+    deleteUser(id)
+  }
+
 
   render() {
     
@@ -50,8 +55,8 @@ class User extends Component {
     <div className="col-md-8 mb-4">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
-        <h4 className="d-inline" style={{cursor:"pointer"}}  onClick={this.onClickEvent.bind(this,34)}>{name}</h4>
-        <i className="far fa-trash-alt" style={{cursor:"pointer"}}></i>
+        <h4 className="d-inline" style={{cursor:"pointer"}}  onClick={this.onClickEvent.bind(this)}>{name}</h4>
+        <i className="far fa-trash-alt" onClick={this.onDeleteUser} style={{cursor:"pointer"}}></i>
         </div>
 
         {
@@ -80,7 +85,8 @@ class User extends Component {
 User.propType = {
   name : PropTypes.string.isRequired,
   department : PropTypes.string.isRequired,
-  salary : PropTypes.string.isRequired
+  salary : PropTypes.string.isRequired,
+  deleteUser : PropTypes.func.isRequired
 }
 
 export default User
